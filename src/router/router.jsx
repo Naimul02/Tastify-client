@@ -5,6 +5,8 @@ import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
 import AllFoods from "../components/AllFoods/AllFoods";
 import SingleFood from "../components/SingleFood/SingleFood";
+import Purchase from "../components/Purchase/Purchase";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -26,13 +28,22 @@ const router = createBrowserRouter([
       {
         path: "/allFoods",
         element: <AllFoods></AllFoods>,
-        loader : () => fetch("http://localhost:5000/foodsAll")
+        loader: () => fetch("http://localhost:5000/foodsAll"),
       },
       {
-        path : '/singleFood/:id',
-        element : <SingleFood></SingleFood>,
-        loader : ({params}) => fetch(`http://localhost:5000/singleFood/${params.id}`)
-      }
+        path: "/singleFood/:id",
+        element: <SingleFood></SingleFood>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/singleFood/${params.id}`),
+      },
+      {
+        path: "/purchase",
+        element: (
+          <PrivateRoute>
+            <Purchase></Purchase>
+          </PrivateRoute>
+        ),
+      },
     ],
   },
 ]);
