@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const SingleFood = () => {
   const food = useLoaderData();
@@ -39,9 +39,11 @@ const SingleFood = () => {
               Country : {food?.food_origin}
             </p>
 
-            <button className="mt-2 btn bg-green-500 hover:bg-green-600 text-white  rounded-xl px-10 text-lg">
-              Purchase Now
-            </button>
+            <Link to={`/purchase/${food._id}`}>
+              <button className="mt-2 btn bg-green-500 hover:bg-green-600 text-white  rounded-xl px-10 text-lg">
+                Purchase Now
+              </button>
+            </Link>
           </div>
         </div>
       </div>

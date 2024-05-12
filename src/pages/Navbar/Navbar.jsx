@@ -1,9 +1,19 @@
+import { useContext } from "react";
 import { FaFacebookF, FaLinkedin, FaRegStar, FaTwitter } from "react-icons/fa";
 import { IoMdStar } from "react-icons/io";
 import { IoShareSocial } from "react-icons/io5";
 import { LuContact } from "react-icons/lu";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 const Navbar = () => {
+  const { logOut, user } = useContext(AuthContext);
+  console.log(user);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch(() => {});
+  };
   const navLinks = (
     <>
       <li className="text-lg font-semibold border-r px-1">
@@ -17,12 +27,41 @@ const Navbar = () => {
       <li className="text-lg font-semibold border-r px-1">
         <NavLink to="/gallery">Gallery</NavLink>
       </li>
-      <li className="text-lg font-semibold border-r px-1">
-        {" "}
-        <NavLink to="/login">Login</NavLink>
-      </li>
-      <li className="text-lg font-semibold border-r px-1">
-        <NavLink to="/myProfile">My Profile</NavLink>
+      {user ? (
+        <li
+          className="text-lg font-semibold border-r px-1"
+          onClick={handleLogOut}
+        >
+          {" "}
+          <NavLink>Logout</NavLink>
+        </li>
+      ) : (
+        <li className="text-lg font-semibold border-r px-1">
+          {" "}
+          <NavLink to="/login">Login</NavLink>
+        </li>
+      )}
+      <li className="text-lg font-semibold  px-1">
+        <details className="dropdown">
+          <summary className="">
+            <div className="avatar">
+              <div className="w-12 rounded-full">
+                <img src={user?.photoURL} />
+              </div>
+            </div>
+          </summary>
+          <ul className="p-2 shadow menu dropdown-content z-10 bg-base-100 rounded-none border w-52">
+            <li className="border-b">
+              <a>My added food items</a>
+            </li>
+            <li className="border-b">
+              <Link to="/addFood">Add a food item</Link>
+            </li>
+            <li>
+              <a>My ordered food items</a>
+            </li>
+          </ul>
+        </details>
       </li>
     </>
   );

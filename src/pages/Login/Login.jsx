@@ -1,14 +1,50 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
+import { FcGoogle } from "react-icons/fc";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
+  const { loginUser, loginWithGoogle } = useContext(AuthContext);
+  const location = useLocation();
+  console.log(location);
+  const navigate = useNavigate();
+
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
-    const name = form.name.value;
+
     const email = form.email.value;
     const password = form.password.value;
-    const photo = form.photo.value;
-    console.log(name, email, password, photo);
+
+    console.log(email, password);
+    loginUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+        if (result.user) {
+          toast.success("User login has been successful");
+          navigate(location.state ? location.state : "/");
+        }
+      })
+      .catch((error) => {
+        console.error(error.message);
+        toast.error(error.message);
+      });
+  };
+  const handleGoogle = () => {
+    loginWithGoogle()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        if (result.user) {
+          toast.success("User login has been successful");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error(error.message);
+      });
   };
   return (
     <div className="bg-[url('https://img.freepik.com/free-vector/geometric-gradient-futuristic-background_23-2149116406.jpg?size=626&ext=jpg&ga=GA1.1.553209589.1715212800&semt=ais')] h-screen bg-no-repeat bg-cover">
@@ -27,6 +63,7 @@ const Login = () => {
                 placeholder="email"
                 className="input input-bordered"
                 required
+                name="email"
               />
             </div>
 
@@ -34,6 +71,7 @@ const Login = () => {
               <input
                 type="password"
                 placeholder="password"
+                name="password"
                 className="input input-bordered"
                 required
               />
@@ -41,6 +79,12 @@ const Login = () => {
             <div className="form-control mt-6">
               <button className="btn bg-cyan-900 text-white hover:bg-cyan-800 border-none">
                 Login
+              </button>
+            </div>
+            <div className="flex gap-3 mx-auto">
+              <button className="btn" onClick={handleGoogle}>
+                <FcGoogle className="text-2xl" />
+                <p>Google</p>
               </button>
             </div>
 
@@ -51,6 +95,7 @@ const Login = () => {
               </Link>
             </p>
           </form>
+          <ToastContainer />
         </div>
       </div>
     </div>

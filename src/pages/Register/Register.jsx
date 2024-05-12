@@ -1,9 +1,12 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
+import { updateProfile } from "firebase/auth";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, auth } = useContext(AuthContext);
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -14,10 +17,40 @@ const Register = () => {
     console.log(name, email, password, photo);
     createUser(email, password)
       .then((result) => {
+        updateProfile(auth.currentUser, {
+          displayName: name,
+          photoURL: photo,
+        })
+          .then(() => {})
+          .catch(() => {});
+
         console.log(result.user);
+        const user = {
+          name,
+          email,
+          password,
+          photo,
+        };
+        if (result.user) {
+          fetch("http://localhost:5000/users", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(user),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+              if (data.acknowledged) {
+                toast.success("User created successful");
+              }
+            });
+        }
       })
       .catch((error) => {
         console.log(error.message);
+        toast.error(error.message)
       });
   };
   return (
@@ -78,6 +111,7 @@ const Register = () => {
               </Link>
             </p>
           </form>
+          <ToastContainer />
         </div>
       </div>
     </div>

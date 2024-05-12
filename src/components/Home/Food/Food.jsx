@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import "./Food.css";
 const Food = ({ food }) => {
-  const { img, food_name, food_category, price } = food;
+  const { img, food_name, food_category, price,_id } = food;
 
   return (
     <div className="card h-[280px] rounded-lg relative card-food">
@@ -16,9 +17,11 @@ const Food = ({ food }) => {
         <p className="text-xl">Category : {food_category}</p>
         <p className="text-xl">${price}</p>
         <div className="card-actions">
+          <Link to={`/singleFood/${_id}`}>
           <button className="btn bg-emerald-500 hover:bg-emerald-600 text-white px-12 text-lg font-semibold rounded-lg border-none">
             Details
           </button>
+          </Link>
         </div>
       </div>
     </div>
