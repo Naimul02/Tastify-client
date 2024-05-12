@@ -51,14 +51,14 @@ const Navbar = () => {
             </div>
           </summary>
           <ul className="p-2 shadow menu dropdown-content z-10 bg-base-100 rounded-none border w-52">
-            <li className="border-b">
-              <a>My added food items</a>
+            <li className="border-b mb-1">
+              <Link to="/myAddedFood">My added food items</Link>
             </li>
-            <li className="border-b">
+            <li className="border-b my-1">
               <Link to="/addFood">Add a food item</Link>
             </li>
-            <li>
-              <a>My ordered food items</a>
+            <li className="mt-1">
+              <Link to="">My ordered food items</Link>
             </li>
           </ul>
         </details>
