@@ -7,6 +7,9 @@ import "react-toastify/dist/ReactToastify.css";
 const Purchase = () => {
   const food = useLoaderData();
   const { user } = useContext(AuthContext);
+  const date = new Date();
+
+  const newDate = date.toString().split(" ").slice(0, 5);
 
   const handlePurchase = (e) => {
     e.preventDefault();
@@ -126,10 +129,11 @@ const Purchase = () => {
                   <span className="label-text text-xl">Buying Date</span>
                 </label>
                 <input
-                  type="date"
+                  type="text"
                   className="input input-bordered w-full"
                   name="date"
                   required
+                  defaultValue={newDate}
                 />
               </div>
               <div className="form-control mt-6">

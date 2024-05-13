@@ -2,6 +2,8 @@ import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import axios from "axios";
 import TableBody from "./TableBody";
+import Swal from "sweetalert2";
+
 
 const MyAddedFood = () => {
   const { user, loading } = useContext(AuthContext);
@@ -24,6 +26,40 @@ const MyAddedFood = () => {
     );
   }
 
+
+  const handleDelete = (_id) => {
+    fetch(`http://localhost:5000/myAddedFood/${_id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.deletedCount > 0) {
+          Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              const remaining = myFoods.filter(
+                (food) => food._id !== _id
+              );
+              setMyFoods(remaining);
+
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+              });
+            }
+          });
+        }
+      });
+  };
   return (
     <div>
       <div className="bg-base-200 py-10">
@@ -39,9 +75,7 @@ const MyAddedFood = () => {
           <thead>
             <tr>
               <th>
-                <label>
-                  <input type="checkbox" className="checkbox" />
-                </label>
+                
               </th>
               <th>Image</th>
               <th>Name</th>
@@ -53,7 +87,9 @@ const MyAddedFood = () => {
           </thead>
           <tbody>
             {myFoods?.map((food) => (
-              <TableBody key={food._id} food={food}></TableBody>
+              <TableBody key={food._id} food={food}
+              handleDelete={ handleDelete}
+              ></TableBody>
             ))}
           </tbody>
         </table>
