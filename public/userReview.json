@@ -1,0 +1,17 @@
+[
+  {
+    "userName": "JohnDoe123",
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtzSFup4GceRsWQiRrWaTc9yqYkBzWvfyzgoUREXNM4-heoYx43nY_L2YIcxlhqNeInqw&usqp=CAU",
+    "feedback": "Great product! Very satisfied with the quality and service."
+  },
+  {
+    "userName": "JaneSmith456",
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp0JzENmKxmactVSTw-44juNcb8slrUhooooXtdBgHsg&s",
+    "feedback": "The product exceeded my expectations. I would highly recommend it to others."
+  },
+  {
+    "userName": "BobJohnson789",
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShrfxKkj3CL9uqlReymHccaGEaaPoEmyQ-ICzjIL_yCA&s",
+    "feedback": "Excellent customer support and fast delivery. Will definitely purchase again."
+  }
+]

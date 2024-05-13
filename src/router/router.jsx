@@ -12,6 +12,7 @@ import MyAddedFood from "../components/MyAddedFood/MyAddedFood";
 import MyModal from "../components/MyAddedFood/MyModal";
 import PurchaseOrderFood from "../components/Purchase/PurchaseOrderFood";
 import ErrorPage from "../ErrorPage/ErrorPage";
+import Gallery from "../components/Gallery/Gallery";
 
 const router = createBrowserRouter([
   {
@@ -69,6 +70,15 @@ const router = createBrowserRouter([
         element: <MyModal></MyModal>,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/update/${params.id}`),
+      },
+      {
+        path: "/gallery",
+        element: (
+          <PrivateRoute>
+            <Gallery></Gallery>
+          </PrivateRoute>
+        ),
+        loader: () => fetch("http://localhost:5000/gallery"),
       },
     ],
   },

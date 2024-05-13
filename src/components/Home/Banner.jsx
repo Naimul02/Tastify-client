@@ -9,6 +9,7 @@ import "swiper/css/pagination";
 
 // import required modules
 import { Pagination } from "swiper/modules";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
@@ -35,9 +36,13 @@ const Banner = () => {
                   drinks to customers. Meals are generally served and eaten on
                   the premises, but many restaurants
                 </p>
-                <button className="btn px-10 rounded-xl text-xl">
-                  All Foods
-                </button>
+                <div>
+                  <Link to="/allFoods" className="mt-2">
+                    <button className="btn px-10 rounded-xl text-xl">
+                      All Foods
+                    </button>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -57,9 +62,13 @@ const Banner = () => {
                   drinks to customers. Meals are generally served and eaten on
                   the premises, but many restaurants
                 </p>
-                <button className="btn px-10 rounded-xl text-xl">
-                  All Foods
-                </button>
+                <div>
+                  <Link to="/allFoods" className="mt-2">
+                    <button className="btn px-10 rounded-xl text-xl">
+                      All Foods
+                    </button>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -79,9 +88,13 @@ const Banner = () => {
                   drinks to customers. Meals are generally served and eaten on
                   the premises, but many restaurants
                 </p>
-                <button className="btn px-10 rounded-xl text-xl">
-                  All Foods
-                </button>
+                <div>
+                  <Link to="/allFoods" className="mt-2">
+                    <button className="btn px-10 rounded-xl text-xl">
+                      All Foods
+                    </button>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
