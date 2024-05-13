@@ -25,6 +25,8 @@ const Purchase = () => {
       buyerName,
       buyerEmail,
       date,
+      img: food.img,
+      made_by: food.made_by,
     };
 
     fetch("http://localhost:5000/purchase", {

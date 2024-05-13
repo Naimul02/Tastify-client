@@ -9,6 +9,7 @@ import Purchase from "../components/Purchase/Purchase";
 import PrivateRoute from "./PrivateRoute";
 import AddFood from "../components/AddFood/AddFood";
 import MyAddedFood from "../components/MyAddedFood/MyAddedFood";
+import MyModal from "../components/MyAddedFood/MyModal";
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,11 @@ const router = createBrowserRouter([
         element: <MyAddedFood></MyAddedFood>,
       
       },
+      {
+        path : '/myModal/:id',
+        element :<MyModal></MyModal>,
+        loader : ({params}) => fetch(`http://localhost:5000/update/${params.id}`)
+      }
     ],
   },
 ]);
