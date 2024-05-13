@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import axios from "axios";
 import TableBody from "./TableBody";
@@ -7,6 +7,15 @@ const MyAddedFood = () => {
   const { user, loading } = useContext(AuthContext);
   const [myFoods, setMyFoods] = useState([]);
 
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/myAddedFood?email=${user?.email}`)
+      .then((res) => {
+        // console.log(res.data);
+        setMyFoods(res.data);
+      });
+  }, [user?.email]);
+
   if (loading) {
     return (
       <div className="flex justify-center h-screen items-center">
@@ -14,14 +23,6 @@ const MyAddedFood = () => {
       </div>
     );
   }
-  axios
-    .get(`http://localhost:5000/myAddedFood?email=${user?.email}`)
-    .then((res) => {
-      // console.log(res.data);
-      setMyFoods(res.data);
-    });
-
-  
 
   return (
     <div>
@@ -50,9 +51,11 @@ const MyAddedFood = () => {
               <th></th>
             </tr>
           </thead>
-          <tbody>{myFoods?.map(food => <TableBody key={food._id}
-            food={food}
-          ></TableBody>)}</tbody>
+          <tbody>
+            {myFoods?.map((food) => (
+              <TableBody key={food._id} food={food}></TableBody>
+            ))}
+          </tbody>
         </table>
       </div>
     </div>
