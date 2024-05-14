@@ -1,16 +1,24 @@
-import { useContext } from "react";
-import {  useLoaderData, useLocation } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet";
 
 const Gallery = () => {
-  const galleries = useLoaderData();
-  const { user} = useContext(AuthContext);
-
+  const { user } = useContext(AuthContext);
   const location = useLocation();
-  
+  const [galleries, setGalleries] = useState([]);
+  const axiosSecure = useAxiosSecure();
+
+  const url = `/gallery?email=${user?.email}`;
+  useEffect(() => {
+    axiosSecure(url).then((res) => {
+      console.log(res.data);
+      setGalleries(res.data);
+    });
+  }, [axiosSecure]);
 
   const handleGallery = (e) => {
     e.preventDefault();
@@ -41,6 +49,11 @@ const Gallery = () => {
   };
   return (
     <div>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Tastify || Gallery</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className="h-[400px] bg-[url('https://www.desktopbackground.org/p/2015/10/11/1024693_1-restaurant-hd-wallpapers_1920x1200_h.jpg')] bg-no-repeat bg-cover text-white mb-20">
         <div className="flex items-center h-full justify-center bg-gradient-to-b from-[#151515] to-[rgba(21 , 21, 21 , 0)] ">
           <div>

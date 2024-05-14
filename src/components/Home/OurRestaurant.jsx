@@ -1,6 +1,6 @@
 const OurRestaurant = () => {
   return (
-    <div className="my-20 bg-base-200 py-16">
+    <div className="my-20 bg-base-200 py-16 p-4 lg:p-0">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-5xl font-semibold mb-3">
           Visit{" "}
@@ -8,7 +8,7 @@ const OurRestaurant = () => {
             Restaurant
           </span>
         </h1>
-        <div className="flex gap-10 items-center  max-w-6xl mx-auto">
+        <div className="flex flex-col  lg:flex-row lg:gap-10  lg:p-0 items-center  max-w-6xl mx-auto">
           <div className="grid grid-cols-3 lg:w-[60%] gap-6">
             <div className="h-[150px] rounded-lg">
               <img
@@ -47,7 +47,7 @@ const OurRestaurant = () => {
               />
             </div>
           </div>
-          <div className="w-[40%]">
+          <div className="w-full lg:w-[40%] mt-3 lg:mt-0">
             <h1 className="text-4xl font-bold mb-4">About Our Restaurant</h1>
             <p className="text-lg">
               Restaurants know the importance of a strong first impression. It

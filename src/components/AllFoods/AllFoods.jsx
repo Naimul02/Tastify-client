@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import Food from "../Home/Food/Food";
 import { useState } from "react";
 import AllFood from "./AllFood";
+import { Helmet } from "react-helmet";
 
 const AllFoods = () => {
   const allFoods = useLoaderData();
@@ -11,6 +12,11 @@ const AllFoods = () => {
 
   return (
     <div>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Tastify || AllFoods</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className="h-[400px] bg-[url('https://www.desktopbackground.org/p/2015/10/11/1024693_1-restaurant-hd-wallpapers_1920x1200_h.jpg')] bg-no-repeat bg-cover text-white mb-20">
         <div className="flex items-center h-full justify-center bg-gradient-to-b from-[#151515] to-[rgba(21 , 21, 21 , 0)] ">
           <div>

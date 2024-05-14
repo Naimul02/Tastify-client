@@ -23,9 +23,9 @@ const AuthProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
   const loginWithGoogle = () => {
-      setLoading(true);
-      return signInWithPopup(auth , googleProvider)
-  }
+    setLoading(true);
+    return signInWithPopup(auth, googleProvider);
+  };
   const loginUser = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
@@ -37,16 +37,19 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      const userEmail = currentUser?.email || user.email;
-      const loggedEmail = {email : userEmail};
+      const userEmail = currentUser?.email || user?.email;
+      const loggedEmail = { email: userEmail };
       setUser(currentUser);
       setLoading(false);
 
-      if(currentUser){
-        axios.post("http://localhost:5000/jwt" , loggedEmail , {withCredentials : true})
-        .then(res => {
-            console.log(res.data)
-        })
+      if (currentUser) {
+        axios
+          .post("http://localhost:5000/jwt", loggedEmail, {
+            withCredentials: true,
+          })
+          .then((res) => {
+            console.log(res.data);
+          });
       }
     });
     return () => unsubscribe();

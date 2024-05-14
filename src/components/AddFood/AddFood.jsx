@@ -2,9 +2,12 @@ import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet";
 
 const AddFood = () => {
   const { user } = useContext(AuthContext);
+  const axiosSecure = useAxiosSecure();
   const handleAddFood = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -30,23 +33,36 @@ const AddFood = () => {
       email,
       quantity,
     };
-    fetch("http://localhost:5000/addFood", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(addFood),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.acknowledged) {
-          toast.success("Food has been added successful");
-          form.reset();
-        }
-      });
+
+    const url = `/addFood?email=${user?.email}`;
+    axiosSecure.post(url, addFood).then((res) => {
+      if (res.data.acknowledged) {
+        toast.success("Food has been added successful");
+        form.reset();
+      }
+    });
+    // fetch(url, {
+    //   method: "POST",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify(addFood),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     if (data.acknowledged) {
+    //       toast.success("Food has been added successful");
+    //       form.reset();
+    //     }
+    //   });
   };
   return (
     <div>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Tastify || Add Food</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className="bg-base-200 py-10">
         <h1 className="text-2xl font-bold text-orange-700 text-center">
           Home || Add Food
@@ -54,10 +70,10 @@ const AddFood = () => {
       </div>
 
       <div className="">
-        <div className="w-[60%] mx-auto my-10  bg-slate-100">
+        <div className="w-full lg:w-[60%] mx-auto my-10  bg-slate-100">
           <div className="card shrink-0 rounded-lg border">
             <form className="card-body" onSubmit={handleAddFood}>
-              <div className="flex gap-4 ">
+              <div className="flex gap-4 flex-col lg:flex-row ">
                 <div className="form-control  w-full">
                   <label className="label">
                     <span className="label-text text-xl">Food Name</span>
@@ -84,7 +100,7 @@ const AddFood = () => {
                 </div>
               </div>
 
-              <div className="flex gap-4">
+              <div className="flex gap-4 flex-col lg:flex-row">
                 <div className="form-control  w-full">
                   <label className="label">
                     <span className="label-text text-xl">Food Image</span>
@@ -110,7 +126,7 @@ const AddFood = () => {
                   />
                 </div>
               </div>
-              <div className="flex gap-4">
+              <div className="flex gap-4 flex-col lg:flex-row">
                 <div className="form-control w-full">
                   <label className="label">
                     <span className="label-text text-xl">User Name</span>
@@ -138,7 +154,7 @@ const AddFood = () => {
                   />
                 </div>
               </div>
-              <div className="flex gap-4">
+              <div className="flex gap-4 flex-col lg:flex-row">
                 <div className="form-control w-full">
                   <label className="label">
                     <span className="label-text text-xl">Food Category</span>

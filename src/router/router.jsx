@@ -44,6 +44,12 @@ const router = createBrowserRouter([
           fetch(`http://localhost:5000/singleFood/${params.id}`),
       },
       {
+        path: "/specificFood/:id",
+        element: <SingleFood></SingleFood>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/specificFood/${params.id}`),
+      },
+      {
         path: "/purchase/:id",
         element: (
           <PrivateRoute>
@@ -55,15 +61,27 @@ const router = createBrowserRouter([
       },
       {
         path: "/purchaseOrderFood",
-        element: <PurchaseOrderFood></PurchaseOrderFood>,
+        element: (
+          <PrivateRoute>
+            <PurchaseOrderFood></PurchaseOrderFood>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/addFood",
-        element: <AddFood></AddFood>,
+        element: (
+          <PrivateRoute>
+            <AddFood></AddFood>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/myAddedFood",
-        element: <MyAddedFood></MyAddedFood>,
+        element: (
+          <PrivateRoute>
+            <MyAddedFood></MyAddedFood>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/myModal/:id",
@@ -78,7 +96,6 @@ const router = createBrowserRouter([
             <Gallery></Gallery>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/gallery"),
       },
     ],
   },

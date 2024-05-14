@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const Purchase = () => {
   const food = useLoaderData();
+  console.log("food ta k ", food);
   const { user } = useContext(AuthContext);
   const date = new Date();
 
@@ -42,8 +43,25 @@ const Purchase = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+
         if (data.acknowledged) {
-          toast.success("Your purchase has been successful");
+          const foodInfo = [food, quantity];
+          fetch("http://localhost:5000/updateQuantity", {
+            method: "PATCH",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(foodInfo),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              console.log("patch : ", data);
+              if (food.quantity < "1") {
+                return toast.error("Sorry Item is not available");
+              }
+              toast.success("Your purchase has been successful");
+              location.reload();
+            });
         }
       });
   };
@@ -56,10 +74,10 @@ const Purchase = () => {
         </h1>
       </div>
       <div className="">
-        <div className="w-[60%] mx-auto my-10">
+        <div className="w-full lg:w-[60%] mx-auto my-10 p-6 lg:p-0">
           <div className="card shrink-0 rounded-lg border">
             <form className="card-body" onSubmit={handlePurchase}>
-              <div className="flex gap-4 ">
+              <div className="flex gap-4 flex-col lg:flex-row">
                 <div className="form-control  w-full">
                   <label className="label">
                     <span className="label-text text-xl">Food Name</span>
@@ -137,7 +155,9 @@ const Purchase = () => {
                 />
               </div>
               <div className="form-control mt-6">
-                <button className="btn bg-teal-900 text-white text-lg hover:bg-teal-800">
+                <button
+                  className={`btn bg-teal-900 text-white text-lg hover:bg-teal-800`}
+                >
                   Purchase
                 </button>
               </div>

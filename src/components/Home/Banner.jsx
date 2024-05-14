@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
-    <div className="h-[600px]">
+    <div className="lg:h-[600px] h-[400px]">
       <Swiper
         pagination={true}
         modules={[Pagination]}
@@ -27,8 +27,8 @@ const Banner = () => {
               className="w-full h-full object-cover"
             />
             <div className="absolute flex items-center h-full bg-gradient-to-r from-[#151515] to-[rgba(21 , 21, 21 , 0)] top-0 left-0">
-              <div className="space-y-6 text-white w-1/2 h-1/2 pl-20">
-                <h1 className="text-4xl font-bold text-white">
+              <div className="space-y-3 lg:space-y-6 text-white w-3/4 h-full pt-5 lg:w-1/2 lg:h-1/2 pl-4 lg:pl-20">
+                <h1 className="text-2xl lg:text-4xl font-bold text-white">
                   Our Restaurant
                 </h1>
                 <p>
@@ -55,8 +55,10 @@ const Banner = () => {
               className="w-full h-full object-cover"
             />
             <div className="absolute flex items-center h-full bg-gradient-to-r from-[#151515] to-[rgba(21 , 21, 21 , 0)] top-0 left-0">
-              <div className="space-y-6 text-white w-1/2 h-1/2 pl-20">
-                <h1 className="text-4xl font-bold text-white">Fast Food</h1>
+              <div className="space-y-3 lg:space-y-6 text-white w-3/4 h-full pt-5 lg:w-1/2 lg:h-1/2 pl-4 lg:pl-20">
+                <h1 className="text-2xl lg:text-4xl font-bold text-white">
+                  Fast Food
+                </h1>
                 <p>
                   A restaurant is a business that prepares and serves food and
                   drinks to customers. Meals are generally served and eaten on
@@ -81,8 +83,10 @@ const Banner = () => {
               className="w-full h-full object-cover"
             />
             <div className="absolute flex items-center h-full bg-gradient-to-r from-[#151515] to-[rgba(21 , 21, 21 , 0)] top-0 left-0">
-              <div className="space-y-6 text-white w-1/2 h-1/2 pl-20">
-                <h1 className="text-4xl font-bold text-white">Burger</h1>
+              <div className="space-y-3 lg:space-y-6 text-white w-3/4 h-full pt-5 lg:w-1/2 lg:h-1/2 pl-4 lg:pl-20">
+                <h1 className="text-2xl lg:text-4xl font-bold text-white">
+                  Burger
+                </h1>
                 <p>
                   A restaurant is a business that prepares and serves food and
                   drinks to customers. Meals are generally served and eaten on

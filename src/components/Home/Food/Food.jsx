@@ -17,7 +17,7 @@ const Food = ({ food }) => {
         <p className="text-xl">Category : {food_category}</p>
         <p className="text-xl">${price}</p>
         <div className="card-actions">
-          <Link to={`/singleFood/${_id}`}>
+          <Link to={`/specificFood/${_id}`}>
           <button className="btn bg-emerald-500 hover:bg-emerald-600 text-white px-12 text-lg font-semibold rounded-lg border-none">
             Details
           </button>

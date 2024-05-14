@@ -3,15 +3,18 @@ import { AuthContext } from "../../provider/AuthProvider";
 import axios from "axios";
 import TableBody from "./TableBody";
 import Swal from "sweetalert2";
-
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet";
 
 const MyAddedFood = () => {
   const { user, loading } = useContext(AuthContext);
   const [myFoods, setMyFoods] = useState([]);
+  const axiosSecure = useAxiosSecure();
 
+  const url = `/myAddedFood?email=${user?.email}`
   useEffect(() => {
-    axios
-      .get(`http://localhost:5000/myAddedFood?email=${user?.email}`)
+    axiosSecure
+      .get(url)
       .then((res) => {
         // console.log(res.data);
         setMyFoods(res.data);
@@ -25,7 +28,6 @@ const MyAddedFood = () => {
       </div>
     );
   }
-
 
   const handleDelete = (_id) => {
     fetch(`http://localhost:5000/myAddedFood/${_id}`, {
@@ -45,9 +47,7 @@ const MyAddedFood = () => {
             confirmButtonText: "Yes, delete it!",
           }).then((result) => {
             if (result.isConfirmed) {
-              const remaining = myFoods.filter(
-                (food) => food._id !== _id
-              );
+              const remaining = myFoods.filter((food) => food._id !== _id);
               setMyFoods(remaining);
 
               Swal.fire({
@@ -62,6 +62,13 @@ const MyAddedFood = () => {
   };
   return (
     <div>
+        <Helmet>
+        <meta charSet="utf-8" />
+        <title>Tastify || My Added Food Items</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
+
+
       <div className="bg-base-200 py-10">
         <h1 className="text-2xl font-bold text-orange-700 text-center">
           Home || My Added Food
@@ -74,9 +81,7 @@ const MyAddedFood = () => {
           {/* head */}
           <thead>
             <tr>
-              <th>
-                
-              </th>
+              <th></th>
               <th>Image</th>
               <th>Name</th>
               <th>Price</th>
@@ -87,8 +92,10 @@ const MyAddedFood = () => {
           </thead>
           <tbody>
             {myFoods?.map((food) => (
-              <TableBody key={food._id} food={food}
-              handleDelete={ handleDelete}
+              <TableBody
+                key={food._id}
+                food={food}
+                handleDelete={handleDelete}
               ></TableBody>
             ))}
           </tbody>

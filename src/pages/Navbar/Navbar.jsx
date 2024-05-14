@@ -70,13 +70,13 @@ const Navbar = () => {
       <div className="flex justify-between bg-[#444444] bg-[url('http://www.nicdarkthemes.com/themes/restaurant/wp/demo/italian-food/wp-content/uploads/sites/4/2019/02/bg-topheader.jpg')] px-20 py-2 text-white">
         <div>
           <div className="flex items-center gap-10">
-            <div className="flex gap-3 items-center">
+            <div className="hidden lg:flex gap-3 items-center">
               {" "}
               <IoShareSocial className="text-xl" />
               <h2 className="text-xl font-semibold">Our Social</h2>
             </div>
 
-            <div className="flex gap-2">
+            <div className="flex gap-2 items-center">
               <FaFacebookF className="text-xl" />
               <FaTwitter className="text-xl" />
               <FaLinkedin className="text-xl" />
@@ -85,7 +85,7 @@ const Navbar = () => {
         </div>
         <div>
           <div className="flex items-center gap-10">
-            <div className="flex gap-2 items-center">
+            <div className="hidden lg:flex gap-2 items-center">
               {" "}
               <FaRegStar className="text-xl" />
               <h2 className="text-xl font-semibold">Promotions</h2>
@@ -131,13 +131,13 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-10 p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <img
+              {/* <img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYj69S1iP31BzkIRJVV8osw3TD_UQWQnsJQ-akiRfSiQ&s"
                 alt="img nai"
                 className="w-24 h-24 mx-auto"
-              />
+              /> */}
               {navLinks}
             </ul>
           </div>

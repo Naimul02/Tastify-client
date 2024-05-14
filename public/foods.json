@@ -1,14 +1,16 @@
 [
   {
+    "quantity" : "20",
     "img": "https://www.usdairy.com/getmedia/1a9efa87-5f85-4392-8a67-3836755be069/creamy_carbonara.jpg?width=1500&height=1001&ext=.jpg",
     "food_name": "Spaghetti Carbonara",
     "food_category": "Pasta",
     "price": "12.99",
     "made_by": "Chef Giovanni",
     "food_origin": "Italy",
-    "description": "A classic Italian pasta dish made with spaghetti, eggs, cheese, pancetta, and black pepper."
+    "description": "Assorted sushi rolls made with fresh fish, rice, and nori seaweed, served with wasabi and soy sauce."
   },
   {
+    "quantity" : "20",
     "img": "https://www.justonecookbook.com/wp-content/uploads/2020/06/Dragon-Roll-0286-I-500x375.jpg",
     "food_name": "Sushi Rolls",
     "food_category": "Japanese Cuisine",
@@ -16,17 +18,21 @@
     "made_by": "Sushi Master Takashi",
     "food_origin": "Japan",
     "description": "Assorted sushi rolls made with fresh fish, rice, and nori seaweed, served with wasabi and soy sauce."
+
   },
   {
+    "quantity" : "20",
     "img": "https://www.seriouseats.com/thmb/DbQHUK2yNCALBnZE-H1M2AKLkok=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/chicken-tikka-masala-for-the-grill-recipe-hero-2_1-cb493f49e30140efbffec162d5f2d1d7.JPG",
     "food_name": "Chicken Tikka Masala",
     "food_category": "Indian Cuisine",
     "price": "10.99",
     "made_by": "Chef Raj",
     "food_origin": "India",
+
     "description": "Tender pieces of chicken marinated in spices and yogurt, cooked in a rich tomato and cream sauce."
   },
   {
+    "quantity" : "20",
     "img": "https://iamafoodblog.b-cdn.net/wp-content/uploads/2021/05/al-pastor-3507w.jpg",
     "food_name": "Tacos al Pastor",
     "food_category": "Mexican Cuisine",
@@ -34,8 +40,10 @@
     "made_by": "Chef Maria",
     "food_origin": "Mexico",
     "description": "Corn tortillas filled with marinated pork, pineapple, onions, and cilantro, served with salsa verde."
+
   },
   {
+    "quantity" : "20",
     "img": "https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2019/07/Caprese-Salad-main-1.jpg",
     "food_name": "Caprese Salad",
     "food_category": "Salad",
@@ -43,21 +51,24 @@
     "made_by": "Chef Luigi",
     "food_origin": "Italy",
     "description": "A refreshing salad made with ripe tomatoes, fresh mozzarella cheese, basil leaves, olive oil, and balsamic glaze."
+
   },
   {
+    "quantity" : "20",
     "img": "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2022/06/02/0/FNK_1-Hour-Pho_H1_s4x3.jpg.rend.hgtvcom.1280.960.suffix/1654187508571.jpeg",
     "food_name": "Beef Pho",
     "food_category": "Vietnamese Cuisine",
     "price": "11.50",
     "made_by": "Chef Nguyen",
     "food_origin": "Vietnam",
-    "description": "A fragrant soup made with beef broth, rice noodles, thinly sliced beef, bean sprouts, herbs, and lime wedges."
+    "description": "Soft corn tortillas filled with seasoned beef, lettuce, cheese, and salsa."
   },
 
 
 
 
   {
+    "quantity" : "20",
     "img": "https://iamhomesteader.com/wp-content/uploads/2022/04/birria-taco-2.jpg",
     "food_name": "Beef Tacos",
     "food_category": "Mexican",
@@ -65,8 +76,10 @@
     "made_by": "Chef Maria",
     "food_origin": "Mexico",
     "description": "Soft corn tortillas filled with seasoned beef, lettuce, cheese, and salsa."
+
   },
   {
+    "quantity" : "20",
     "img": "https://www.manusmenu.com/wp-content/uploads/2016/05/1-Salmon-Sashimi-with-Ponzu-3-1-of-1.jpg",
     "food_name": "Salmon Sashimi",
     "food_category": "Sushi",
@@ -74,8 +87,10 @@
     "made_by": "Sushi Master Hiro",
     "food_origin": "Japan",
     "description": "Fresh slices of raw salmon served with wasabi and soy sauce."
+
   },
   {
+    "quantity" : "20",
     "img": "https://img.taste.com.au/vwhoTKXB/taste/2016/11/caprese-salad-31063-1.jpeg",
     "food_name": "Caprese Salad",
     "food_category": "Salads",
@@ -83,8 +98,10 @@
     "made_by": "Chef Giuseppe",
     "food_origin": "Italy",
     "description": "Simple salad made with fresh tomatoes, mozzarella cheese, basil, olive oil, and balsamic vinegar."
+
   },
   {
+    "quantity" : "20",
     "img": "https://www.inspiredtaste.net/wp-content/uploads/2022/11/Pho-Soup-Recipe-Video.jpg",
     "food_name": "Pho",
     "food_category": "Vietnamese",
@@ -92,8 +109,10 @@
     "made_by": "Chef Phuong",
     "food_origin": "Vietnam",
     "description": "Vietnamese noodle soup with beef or chicken, herbs, and rice noodles in a flavorful broth."
+
   },
   {
+    "quantity" : "20",
     "img": "https://www.easycheesyvegetarian.com/wp-content/uploads/2019/11/vegetarian-moussaka-featured-1.jpg",
     "food_name": "Moussaka",
     "food_category": "Greek",
@@ -101,8 +120,10 @@
     "made_by": "Chef Dimitris",
     "food_origin": "Greece",
     "description": "Layered dish with eggplant, minced meat, and creamy béchamel sauce, baked to perfection."
+
   },
   {
+    "quantity" : "20",
     "img": "https://twodollareats.com/wp-content/uploads/2019/10/Two-Dollar-Eats-5265-1300x867.jpg",
     "food_name": "California Roll",
     "food_category": "Sushi",
@@ -110,5 +131,6 @@
     "made_by": "Sushi Master Hiro",
     "food_origin": "United States",
     "description": "Sushi roll filled with imitation crab, avocado, and cucumber, wrapped in seaweed and rice."
+
   }
 ]

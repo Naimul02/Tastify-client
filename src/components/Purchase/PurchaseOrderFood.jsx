@@ -6,6 +6,8 @@ import "react-toastify/dist/ReactToastify.css";
 
 import Swal from "sweetalert2";
 import Loading from "../../Loading/Loading";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet";
 
 // or via CommonJS
 // const Swal = require('sweetalert2')
@@ -13,17 +15,21 @@ import Loading from "../../Loading/Loading";
 const PurchaseOrderFood = () => {
   const { user, loading } = useContext(AuthContext);
   const [purchaseOrderFoods, setPurchaseOrderFood] = useState([]);
+  const axiosSecure = useAxiosSecure();
 
   console.log(user?.email);
 
-  useEffect(() => {
-    axios
-      .get(`http://localhost:5000/purchaseOrderFood?email=${user?.email}`)
-      .then((res) => {
+  const url = `/purchaseOrderFood?email=${user?.email}`;
+  useEffect(
+    () => {
+      axiosSecure.get(url).then((res) => {
         console.log(res.data);
         setPurchaseOrderFood(res.data);
       });
-  }, [user?.email]);
+    },
+    [user?.email],
+    axiosSecure
+  );
   if (loading) {
     return <Loading></Loading>;
   }
@@ -63,6 +69,11 @@ const PurchaseOrderFood = () => {
   };
   return (
     <div>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Tastify || My ordered Food Items</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className="overflow-x-auto max-w-5xl bg-base-100 mx-auto mt-6">
         <table className="table max-w-5xl mx-auto bg-base-100">
           {/* head */}
