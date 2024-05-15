@@ -31,7 +31,7 @@ const Gallery = () => {
       feedback,
       img,
     };
-    fetch("http://localhost:5000/gallery", {
+    fetch("https://assignment-11-server-steel-pi.vercel.app/gallery", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -43,7 +43,7 @@ const Gallery = () => {
         console.log(data);
         if (data.acknowledged) {
           toast.success("Your feedback has been added sucessfull");
-          location.reload();
+          window.location.reload();
         }
       });
   };

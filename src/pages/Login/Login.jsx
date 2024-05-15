@@ -40,6 +40,7 @@ const Login = () => {
         console.log(user);
         if (result.user) {
           toast.success("User login has been successful");
+          navigate(location.state ? location.state : "/");
         }
       })
       .catch((error) => {
@@ -90,9 +91,8 @@ const Login = () => {
                 </button>
               </div>
               <div className="flex gap-3 mx-auto">
-                <button className="btn" onClick={handleGoogle}>
-                  <FcGoogle className="text-2xl" />
-                  <p>Google</p>
+                <button className="" onClick={handleGoogle}>
+                  <FcGoogle className="text-3xl" />
                 </button>
               </div>
 

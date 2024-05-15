@@ -33,7 +33,7 @@ const Purchase = () => {
       made_by: food.made_by,
     };
 
-    fetch("http://localhost:5000/purchase", {
+    fetch("https://assignment-11-server-steel-pi.vercel.app/purchase", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -46,13 +46,16 @@ const Purchase = () => {
 
         if (data.acknowledged) {
           const foodInfo = [food, quantity];
-          fetch("http://localhost:5000/updateQuantity", {
-            method: "PATCH",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(foodInfo),
-          })
+          fetch(
+            "https://assignment-11-server-steel-pi.vercel.app/updateQuantity",
+            {
+              method: "PATCH",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(foodInfo),
+            }
+          )
             .then((res) => res.json())
             .then((data) => {
               console.log("patch : ", data);

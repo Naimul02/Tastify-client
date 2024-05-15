@@ -11,14 +11,12 @@ const MyAddedFood = () => {
   const [myFoods, setMyFoods] = useState([]);
   const axiosSecure = useAxiosSecure();
 
-  const url = `/myAddedFood?email=${user?.email}`
+  const url = `/myAddedFood?email=${user?.email}`;
   useEffect(() => {
-    axiosSecure
-      .get(url)
-      .then((res) => {
-        // console.log(res.data);
-        setMyFoods(res.data);
-      });
+    axiosSecure.get(url).then((res) => {
+      // console.log(res.data);
+      setMyFoods(res.data);
+    });
   }, [user?.email]);
 
   if (loading) {
@@ -30,9 +28,12 @@ const MyAddedFood = () => {
   }
 
   const handleDelete = (_id) => {
-    fetch(`http://localhost:5000/myAddedFood/${_id}`, {
-      method: "DELETE",
-    })
+    fetch(
+      `https://assignment-11-server-steel-pi.vercel.app/myAddedFood/${_id}`,
+      {
+        method: "DELETE",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -62,12 +63,11 @@ const MyAddedFood = () => {
   };
   return (
     <div>
-        <Helmet>
+      <Helmet>
         <meta charSet="utf-8" />
         <title>Tastify || My Added Food Items</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
-
 
       <div className="bg-base-200 py-10">
         <h1 className="text-2xl font-bold text-orange-700 text-center">

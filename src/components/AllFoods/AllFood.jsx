@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 
 const AllFood = ({ food }) => {
-  const { img, food_name, food_category, price, _id } = food;
+  const { img, food_name, food_category, price, _id, quantity } = food;
   return (
-    <div className="card h-[220px] rounded-lg relative card-food">
+    <div className="card h-[250px] rounded-lg relative card-food">
       <figure className="h-full rounded-lg">
         <img
           src={img}
@@ -15,6 +15,7 @@ const AllFood = ({ food }) => {
         <h2 className="card-title text-xl font-semibold">{food_name}</h2>
         <p className="text-lg">Category : {food_category}</p>
         <p className="text-xl">${price}</p>
+        <p className="text-xl">Quantity : {quantity}</p>
         <div className="card-actions">
           <Link to={`/singleFood/${_id}`}>
             {" "}

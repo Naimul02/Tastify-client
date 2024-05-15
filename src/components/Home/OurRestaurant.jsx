@@ -1,6 +1,6 @@
 const OurRestaurant = () => {
   return (
-    <div className="my-20 bg-base-200 py-16 p-4 lg:p-0">
+    <div className="my-20 bg-base-200  p-4 py-16 ">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-5xl font-semibold mb-3">
           Visit{" "}

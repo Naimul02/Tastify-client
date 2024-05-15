@@ -35,9 +35,12 @@ const PurchaseOrderFood = () => {
   }
 
   const handleDelete = (_id) => {
-    fetch(`http://localhost:5000/purchaseOrderFood/${_id}`, {
-      method: "DELETE",
-    })
+    fetch(
+      `https://assignment-11-server-steel-pi.vercel.app/purchaseOrderFood/${_id}`,
+      {
+        method: "DELETE",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

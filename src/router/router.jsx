@@ -35,19 +35,24 @@ const router = createBrowserRouter([
       {
         path: "/allFoods",
         element: <AllFoods></AllFoods>,
-        loader: () => fetch("http://localhost:5000/foodsAll"),
+        loader: () =>
+          fetch("https://assignment-11-server-steel-pi.vercel.app/foodsAll"),
       },
       {
         path: "/singleFood/:id",
         element: <SingleFood></SingleFood>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/singleFood/${params.id}`),
+          fetch(
+            `https://assignment-11-server-steel-pi.vercel.app/singleFood/${params.id}`
+          ),
       },
       {
         path: "/specificFood/:id",
         element: <SingleFood></SingleFood>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/specificFood/${params.id}`),
+          fetch(
+            `https://assignment-11-server-steel-pi.vercel.app/specificFood/${params.id}`
+          ),
       },
       {
         path: "/purchase/:id",
@@ -57,7 +62,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/singleFood/${params.id}`),
+          fetch(
+            `https://assignment-11-server-steel-pi.vercel.app/singleFood/${params.id}`
+          ),
       },
       {
         path: "/purchaseOrderFood",
@@ -87,7 +94,9 @@ const router = createBrowserRouter([
         path: "/myModal/:id",
         element: <MyModal></MyModal>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/update/${params.id}`),
+          fetch(
+            `https://assignment-11-server-steel-pi.vercel.app/update/${params.id}`
+          ),
       },
       {
         path: "/gallery",

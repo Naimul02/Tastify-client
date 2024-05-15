@@ -5,7 +5,7 @@ import { MdArrowForwardIos } from "react-icons/md";
 const Foods = () => {
   const [foods, setFoods] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/foods")
+    fetch("https://assignment-11-server-steel-pi.vercel.app/foods")
       .then((res) => res.json())
       .then((data) => setFoods(data));
   }, []);

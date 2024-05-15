@@ -34,13 +34,16 @@ const MyModal = () => {
       img,
     };
     console.log("updateFood", updateFood);
-    fetch(`http://localhost:5000/myAddedPut/${food._id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updateFood),
-    })
+    fetch(
+      `https://assignment-11-server-steel-pi.vercel.app/myAddedPut/${food._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updateFood),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

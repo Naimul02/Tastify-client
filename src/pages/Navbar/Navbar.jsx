@@ -67,7 +67,7 @@ const Navbar = () => {
   );
   return (
     <div>
-      <div className="flex justify-between bg-[#444444] bg-[url('http://www.nicdarkthemes.com/themes/restaurant/wp/demo/italian-food/wp-content/uploads/sites/4/2019/02/bg-topheader.jpg')] px-20 py-2 text-white">
+      <div className="flex justify-between bg-[#444444] bg-[url('http://www.nicdarkthemes.com/themes/restaurant/wp/demo/italian-food/wp-content/uploads/sites/4/2019/02/bg-topheader.jpg')] px-6 lg:px-20 py-2 text-white">
         <div>
           <div className="flex items-center gap-10">
             <div className="hidden lg:flex gap-3 items-center">

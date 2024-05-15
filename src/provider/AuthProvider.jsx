@@ -1,4 +1,5 @@
 import {
+  GoogleAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
@@ -8,7 +9,7 @@ import {
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import app from "../firebase/firebase.config";
-import { GoogleAuthProvider } from "firebase/auth/cordova";
+
 import axios from "axios";
 
 export const AuthContext = createContext(null);
@@ -44,9 +45,13 @@ const AuthProvider = ({ children }) => {
 
       if (currentUser) {
         axios
-          .post("http://localhost:5000/jwt", loggedEmail, {
-            withCredentials: true,
-          })
+          .post(
+            "https://assignment-11-server-steel-pi.vercel.app/jwt",
+            loggedEmail,
+            {
+              withCredentials: true,
+            }
+          )
           .then((res) => {
             console.log(res.data);
           });

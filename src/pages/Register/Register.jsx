@@ -33,7 +33,7 @@ const Register = () => {
           photo,
         };
         if (result.user) {
-          fetch("http://localhost:5000/users", {
+          fetch("https://assignment-11-server-steel-pi.vercel.app/users", {
             method: "POST",
             headers: {
               "content-type": "application/json",
