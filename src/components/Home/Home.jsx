@@ -14,6 +14,7 @@ const Home = () => {
       </Helmet>
       {/* /banner */}
       <Banner></Banner>
+      {/* foods */}
       <Foods></Foods>
       <OurRestaurant></OurRestaurant>
       <Contact></Contact>
