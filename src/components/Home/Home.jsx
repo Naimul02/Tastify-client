@@ -12,6 +12,7 @@ const Home = () => {
         <title>Tastify || Home</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
+      {/* /banner */}
       <Banner></Banner>
       <Foods></Foods>
       <OurRestaurant></OurRestaurant>
