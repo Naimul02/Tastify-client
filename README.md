@@ -1,6 +1,6 @@
 # Website Name
 
-Tastify
+<h2>Tastify</h2>
 
 # Website Link
 
