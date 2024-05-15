@@ -16,6 +16,7 @@ const Home = () => {
       <Banner></Banner>
       {/* foods */}
       <Foods></Foods>
+      {/* restaurant */}
       <OurRestaurant></OurRestaurant>
       <Contact></Contact>
     </div>
