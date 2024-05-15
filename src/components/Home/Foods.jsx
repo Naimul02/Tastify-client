@@ -4,10 +4,15 @@ import { Link } from "react-router-dom";
 import { MdArrowForwardIos } from "react-icons/md";
 const Foods = () => {
   const [foods, setFoods] = useState([]);
+
+  console.log(foods);
   useEffect(() => {
-    fetch("https://assignment-11-server-steel-pi.vercel.app/foods")
+    fetch("https://assignment-11-server-steel-pi.vercel.app/foodsAll")
       .then((res) => res.json())
-      .then((data) => setFoods(data));
+      .then((data) => {
+        const sorts = data?.sort((a, b) => b.count - a.count);
+        setFoods(sorts);
+      });
   }, []);
   return (
     <div className="mt-20 max-w-6xl  mx-auto">
@@ -20,7 +25,7 @@ const Foods = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {foods?.map((food) => (
+        {foods?.slice(0, 6).map((food) => (
           <Food food={food} key={food._id}></Food>
         ))}
       </div>

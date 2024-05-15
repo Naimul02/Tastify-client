@@ -57,9 +57,13 @@ const AuthProvider = ({ children }) => {
           });
       } else {
         axios
-          .post("http://localhost:5000/logout", loggedEmail, {
-            withCredentials: true,
-          })
+          .post(
+            "https://assignment-11-server-steel-pi.vercel.app/logout",
+            loggedEmail,
+            {
+              withCredentials: true,
+            }
+          )
           .then((res) => {
             console.log(res.data);
           });

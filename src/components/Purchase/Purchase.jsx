@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
@@ -6,9 +6,9 @@ import "react-toastify/dist/ReactToastify.css";
 
 const Purchase = () => {
   const food = useLoaderData();
-  console.log("food ta k ", food);
   const { user } = useContext(AuthContext);
   const date = new Date();
+  const [disable, setIsDisable] = useState(false);
 
   const newDate = date.toString().split(" ").slice(0, 5);
 
@@ -60,6 +60,8 @@ const Purchase = () => {
             .then((data) => {
               console.log("patch : ", data);
               if (food.quantity < "1") {
+                setIsDisable(true);
+
                 return toast.error("Sorry Item is not available");
               }
               toast.success("Your purchase has been successful");
@@ -161,6 +163,7 @@ const Purchase = () => {
               <div className="form-control mt-6">
                 <button
                   className={`btn bg-teal-900 text-white text-lg hover:bg-teal-800`}
+                  disabled={disable}
                 >
                   Purchase
                 </button>
