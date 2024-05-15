@@ -18,6 +18,7 @@ const Home = () => {
       <Foods></Foods>
       {/* restaurant */}
       <OurRestaurant></OurRestaurant>
+      {/* contact */}
       <Contact></Contact>
     </div>
   );
