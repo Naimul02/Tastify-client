@@ -76,6 +76,7 @@ const Purchase = () => {
           Home || Purchase
         </h1>
       </div>
+      {/* purchase */}
       <div className="">
         <div className="w-full lg:w-[60%] mx-auto my-10 p-6 lg:p-0">
           <div className="card shrink-0 rounded-lg border">
