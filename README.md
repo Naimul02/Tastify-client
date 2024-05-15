@@ -1,8 +1,17 @@
-# React + Vite
+# Website Name
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Tastify
 
-Currently, two official plugins are available:
+# Website Link
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+https://assignment-11-client-de6fb.web.app
+
+# Website Feature
+
+<ul>
+  <li>The homepage of the website has a navbar , banner , top food sections , about our restaurant section , contact us section and has a footer</li>
+  <li>There is a route called All Foods in the navbar, clicking on the route will show all the foods available</li>
+  <li>There is another route called Gallery which displays the feedback given by the users on clicking the router</li>
+  <li>Also user can login or register by visiting our login page and register page.</li>
+  <li>clicking on my profile will bring up a dropdown menu that includes my added food items , add a food items , my ordered food items.Clicking on will my added food items the items that i have added ,by going to add a item route a user can add food and if going to My order food item then he can see the ordered food there.  </li>
+</ul>

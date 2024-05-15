@@ -55,6 +55,14 @@ const AuthProvider = ({ children }) => {
           .then((res) => {
             console.log(res.data);
           });
+      } else {
+        axios
+          .post("http://localhost:5000/logout", loggedEmail, {
+            withCredentials: true,
+          })
+          .then((res) => {
+            console.log(res.data);
+          });
       }
     });
     return () => unsubscribe();
