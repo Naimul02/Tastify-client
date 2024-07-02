@@ -1,10 +1,13 @@
 ## Website Name
 
-<h2>Tastify</h2>
+<h3>Tastify</h3>
 
 ## Website Link
 
 https://assignment-11-client-de6fb.web.app
+
+## Project run
+npm run dev
 
 ## Website Feature
 
