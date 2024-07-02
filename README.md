@@ -9,6 +9,10 @@ https://assignment-11-client-de6fb.web.app
 ## project run
 ### npm run dev
 
+## Project Overview
+This project of mine is made for restaurant.Here people can order their favourite food at home. After placing the order , the food will be delivered to his home 
+
+
 ## Website Feature
 
 <ul>
