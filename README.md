@@ -1,12 +1,12 @@
-# Website Name
+## Website Name
 
 <h2>Tastify</h2>
 
-# Website Link
+## Website Link
 
 https://assignment-11-client-de6fb.web.app
 
-# Website Feature
+## Website Feature
 
 <ul>
   <li>The homepage of the website has a navbar , banner , top food sections , about our restaurant section , contact us section and has a footer</li>
